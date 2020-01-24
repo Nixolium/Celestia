@@ -1,0 +1,2 @@
+# Celestia
+ Celestia Hearthstone Bot
