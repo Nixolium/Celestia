@@ -16,12 +16,12 @@ module.exports = function (message) {
 
     //Add players from queue into game.
     for (let l = 0; l < gameData["queue"].length; l++) {
-        let userid = gameData["queue"][0]
-        gameData["queue"].shift()
+        let userid = gameData["queue"][l]
         gameData["players"][userid] = { "score": 0, "name": userData[userid].username, "vote": false, "id": userid, "submission": false }
         functions.sendMessage(bot.channels.get('668330311733739541'), "<@" + userid + "> has joined the game!")
     }
-
+    //clears queue afterward
+    gameData["queue"] = []
 
 
     //clear vote and submissions;
@@ -88,12 +88,13 @@ module.exports = function (message) {
                         gameData["submissions"].push([gameData["players"][guy]["id"], gameData["players"][guy].submission, 0])
                     }
                 }
+
                 //randomize order of submissions
                 gameData["submissions"] = shuffle(gameData["submissions"]);
-
-                let counter = 0
+                
+                let counter = 1
                 for (var sub in gameData["submissions"]) {
-                    let post = gameData["submissions"][counter][1]
+                    let post = gameData["submissions"][counter-1][1]
                     bot.channels.get('668330311733739541').send("Submission " + counter +"\n" + post)
                     counter++
                 }

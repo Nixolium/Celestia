@@ -5,8 +5,6 @@ module.exports = function (message) {
     if (devs.indexOf(id) == -1) { return; }
     gameData["ingame"] = false;
 
-
-
     //publishes round winners
     let rwtext = ""
     let rcount = 1
@@ -17,6 +15,7 @@ module.exports = function (message) {
         }
         rcount += 1
     }
+    bot.channels.get('668330311733739541').send(rwtext)
 
     //publishes scoreboard
     let globalUsers = 0

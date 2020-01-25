@@ -11,7 +11,7 @@ module.exports = function (message) {
         functions.replyMessage(message, "You are not in the game. Use `$join` to join it.")
         return;
     }
-    if (gameData["submissions"].length < 1) {
+    /*if (gameData["submissions"].length < 1) {
         functions.replyMessage(message, "There's nothing to vote for!")
         return;
     }
@@ -25,12 +25,13 @@ module.exports = function (message) {
     } else if (gameData["players"][id]["vote"] != false) {
         functions.replyMessage(message, "You already voted for " + gameData["players"][gameData["players"][id]["vote"]]["name"] + ".")
     } else {
-        min = 0;
-        max = gameData["submissions"].length
+        let min = 0;
+        let max = gameData["submissions"].length
         words[1] = parseInt[words[1]]
 
         //vote added
-        if (parseInt(words[1])==words[1] && words[1] > min && words[1] <= max) {
+        target = message.content.split(" ")[1]
+        if (target > 0 && target <= max) {
             if (gameData["submissions"][words[1] - 1][0] == id) {
                 functions.replyMessage(message, "You can't vote for yourself!")
                 return;

@@ -15,7 +15,7 @@ module.exports = function (message) {
     let winners = []
     let c = 0
     let max = -1
-    for (var guy in gameData["submissions"]) {
+    for (c = 0; c < gameData["submissions"].length; c++) {
         if (gameData["submissions"][c][2] = max) {
             winners.push(gameData["submissions"][c][0]);
         } else if (gameData["submissions"][c][2] > max) {
@@ -25,8 +25,8 @@ module.exports = function (message) {
         c += 1
     }
     let text = ""
-    for (var winner in winners){
-        text += "<@" + winner + "> "
+    for (var winner in winners) {
+        text += "<@" + winners[winner] + "> "
     }
     text += "won the round."
     gameData["rounds"].push([winners])

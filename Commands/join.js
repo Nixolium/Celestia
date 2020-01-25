@@ -3,13 +3,13 @@ module.exports=function(message) {
     let ts = message.createdTimestamp;
     let words = message.content.trim().split(/\s+/)
     for (var x in gameData["players"]) {
-        if(id = gameData["players"][x]){
+        if(id == gameData["players"][x]){
             functions.replyMessage(message, "You are already in the game!")
             return;
         }
     }
     for (var x in gameData["queue"]) {
-        if(id = x){
+        if(id == x){
             functions.replyMessage(message, "You are in the queue. Please wait for the next round to start.")
             return;
         }
