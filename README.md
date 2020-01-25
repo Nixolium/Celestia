@@ -1,2 +1,1 @@
-# Celestia
- Celestia Hearthstone Bot
+# Celestia Discord Bot
