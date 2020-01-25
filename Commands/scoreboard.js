@@ -7,7 +7,7 @@ module.exports = function (message) {
     //text = ""
     let scores = []
     for (var x in gameData["players"]) {
-        scores.push(x.score + " " + x.name)
+        scores.push(gameData["players"][x].score + " " + gameData["players"][x].name)
         globalUsers += 1
     }
     scores.sort(function (a, b) { return parseInt(b.split(" ")[0]) - parseInt(a.split(" ")[0]) })
@@ -26,10 +26,10 @@ module.exports = function (message) {
     }
     let pages = []
     for (var i = 0; i < globalUsers; i++) {
-        let user = xparrtosort[i].split(" ")
+        let user = scores[i].split(" ")
         let text = parseInt(user[0])
         let username = user[1]
-        page.embed.fields[1].value += "**" + (i + 1) + ". " + username + "** with **$" + text + "**"
+        page.embed.fields[0].value += "**" + (i + 1) + ". " + username + "** with **" + text + "** points"
         if (i % numPerPage == numPerPage - 1) { // separate pages
             page.embed.footer.text = (pages.length * numPerPage + 1) + "-" + (i + 1) + " out of " + globalUsers //add footer to display where you are
             pages.push(page)
@@ -46,10 +46,10 @@ module.exports = function (message) {
                 }
             }
         } else {
-            page.embed.fields[1].value += "\n"
+            page.embed.fields[0].value += "\n"
         }
     }
-    /*if (page.embed.fields[1].value != "") {
+    if (page.embed.fields[0].value != "") {
         page.embed.footer.text = (pages.length * numPerPage + 1) + "-" + (i + 1) + " out of " + globalUsers
         pages.push(page)
         page = {
@@ -64,6 +64,6 @@ module.exports = function (message) {
                 },
             }
         }
-    }*/
+    }
     new functions.Paginator(message.channel, message.author, pages)
 }

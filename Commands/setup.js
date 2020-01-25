@@ -3,5 +3,6 @@ module.exports=function(message) {
     let ts = message.createdTimestamp;
     let words = message.content.trim().split(/\s+/)
     if (devs.indexOf(id) == -1) return;
-    gameData = {"queue": [], "players": {}, "round": [], "submissions": [], "arena": message.channel, "ingame": false}
+    gameData = {"queue": [], "players": {}, "rounds": [], "submissions": [], "arena": message.channel.id, "ingame": false}
+    functions.replyMessage(message, "Setup complete.")
 }

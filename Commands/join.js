@@ -3,7 +3,7 @@ module.exports=function(message) {
     let ts = message.createdTimestamp;
     let words = message.content.trim().split(/\s+/)
     for (var x in gameData["players"]) {
-        if(id = x.id){
+        if(id = gameData["players"][x]){
             functions.replyMessage(message, "You are already in the game!")
             return;
         }
@@ -14,7 +14,7 @@ module.exports=function(message) {
             return;
         }
     }
-    gameData["queue"].push(message.author)
+    gameData["queue"].push(id)
     functions.replyMessage(message, "You have joined the queue. Please wait for the next round to start")
-    functions.sendMessage(gameData["arena"], "<@" + message.author.id + "> has joined the game!")
+    functions.sendMessage(bot.channels.get('668330311733739541'), "<@" + message.author.id + "> has joined the queue!")
 }

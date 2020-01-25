@@ -12,6 +12,9 @@ module.exports = function (message) {
 	else if (msg === 'NIX') {
 		functions.sendMessage(message.channel, "Nix has been pinged!");
 	}
+	else if (msg === 'Hello') {
+		functions.sendMessage(message.channel, "Good Day!");
+	}
 	else if (msg === '._.' && id != "536622022709608468") {
 		functions.sendMessage(message.channel, '.-.');
 	}
@@ -28,6 +31,6 @@ module.exports = function (message) {
 		functions.sendMessage(message.channel, 'You are: ' + sendername + "#" + message.author.discriminator);
 	}
 	else if (msg === 'PREFIX') {
-		functions.sendMessage(message.channel, "Eris's Prefix is + `" + defaultPrefix + "`");
+		functions.sendMessage(message.channel, "Celestia's Prefix is + `" + defaultPrefix + "`");
 	}
 }

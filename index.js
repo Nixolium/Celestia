@@ -1,6 +1,7 @@
 ﻿const Discord = require('discord.js');
 const asyncpkg = require("async")
 const random = require("random")
+const forever = require("forever")
 
 global.ready = false
 global.bot = new Discord.Client();
@@ -260,7 +261,6 @@ function evaluateMessage(message) {
 bot.on("message", message => {
     evaluateMessage(message)
 });
-
 
 bot.on('ready', function () {
     console.log("Celestia Harbinged!");
