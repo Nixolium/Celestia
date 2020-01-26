@@ -53,6 +53,8 @@ module.exports = function (message) {
     let min = 5;
     let sec = 1;
     let end = false
+
+    /*
     const timeinterval = setInterval(function () {
         sec -= 1
         if (sec < 0) {
@@ -71,10 +73,10 @@ module.exports = function (message) {
             bot.channels.get('668330311733739541').send("15 Seconds Remaining. Get your submission ready!")
         } else {
         }
-    }, 1000)
+    }, 1000)*/
 
-    //end = true
-    sec2 = 60;
+    end = true
+    sec2 = 20;
     const timeinterval2 = setInterval(function () {
         //console.log("going")
         if (end) {
@@ -85,7 +87,7 @@ module.exports = function (message) {
                 //move submissions and post em...
                 for (var guy in gameData["players"]) {
                     if (gameData["players"][guy].submission != false) {
-                        gameData["submissions"].push([gameData["players"][guy]["id"], gameData["players"][guy].submission, 0])
+                        gameData["submissions"].push([gameData["players"][guy]["id"], gameData["players"][guy].submission, 0])//pushes id, submission, and 0
                     }
                 }
 

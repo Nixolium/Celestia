@@ -27,30 +27,34 @@ module.exports = function (message) {
     } else {
         let min = 0;
         let max = gameData["submissions"].length
-        words[1] = parseInt[words[1]]
+        //words[1] = Math.floor(parseInt[words[1]])
 
         //vote added
-        target = message.content.split(" ")[1]
-        if (target > 0 && target <= max) {
-            if (gameData["submissions"][words[1] - 1][0] == id) {
+        target = Math.floor(parseInt(message.content.split(" ")[1]))
+        if (target > 0 && target <= max && target != undefined && gameData["submissions"][target - 1][0] != undefined) {
+            if (gameData["submissions"][target - 1][0] == id) {
                 functions.replyMessage(message, "You can't vote for yourself!")
                 return;
             }
-            gameData["players"][id]["vote"] = words[1]
-            votedId = gameData["submissions"][words[1] - 1][0]
-            gameData["submissions"][words[1] - 1][2] += 1;
-            functions.replyMessage(message, "You voted for **" + gameData["players"][gameData["players"][id]["vote"]]["name"] + "**.")
+
+            votedId = gameData["submissions"][target - 1][0]
+            gameData["players"][id]["vote"] = votedId
+            if(gameData["submissions"][target - 1][2] == undefined) gameData["submissions"][target - 1][2] = 0
+            gameData["submissions"][target - 1][2] += 1;
+            gameData["players"][votedId]["score"] += 1;
+            functions.replyMessage(message, "You voted for **" + gameData["players"][votedId]["name"] + "**.")
 
             //are all votes in?
             for (var x in gameData["players"]) {
-                if (gameData["players"][x].vote == false){
+                if (gameData["players"][x]["vote"] == false) {
                     return;//nope, we return
                 }
             }
             //all votes are in
             functions.sendMessage(bot.channels.get('668330311733739541'), "All votes have been cast. An admin will `$endround`")
-        }else{
+        } else {
             functions.replyMessage(message, "Are you sure you sent a valid entry number?")
+            return;
         }
     }
 }

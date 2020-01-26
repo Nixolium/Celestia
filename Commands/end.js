@@ -9,9 +9,9 @@ module.exports = function (message) {
     let rwtext = ""
     let rcount = 1
     for (let x = 0; x < gameData["rounds"].length; x++) {
-        rwtext += "Round " + rcount + " Winner(s):"
-        for (let y = 0; y < gameData["rounds"].length; y++) {
-            rwtext + gameData["rounds"][x][y]
+        rwtext += "Round " + rcount + " Winner(s): "
+        for (let y = 0; y < gameData["rounds"][x].length; y++) {
+            rwtext += "<@" + gameData["rounds"][x][y] + "> "
         }
         rcount += 1
     }
