@@ -38,6 +38,9 @@ module.exports = function (message) {
         randomNumber = Math.floor(Math.random() * wordData.length)
         text += " and **" + wordData[randomNumber] + "**"
     }
+    if (words.length > 1 && words[1].toUpperCase() == "-MYSTERY") {
+        text += " and **" + devData["mystery"] + "**"
+    }
     functions.sendMessage(bot.channels.get('668330311733739541'), text);
 
     //players?
@@ -54,7 +57,7 @@ module.exports = function (message) {
     let sec = 1;
     let end = false
 
-    /*
+    
     const timeinterval = setInterval(function () {
         sec -= 1
         if (sec < 0) {
@@ -73,10 +76,10 @@ module.exports = function (message) {
             bot.channels.get('668330311733739541').send("15 Seconds Remaining. Get your submission ready!")
         } else {
         }
-    }, 1000)*/
+    }, 1000)
 
     end = true
-    sec2 = 20;
+    sec2 = 60;
     const timeinterval2 = setInterval(function () {
         //console.log("going")
         if (end) {

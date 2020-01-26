@@ -16,12 +16,12 @@ module.exports=function(message) {
 
     "-----Dev Commands-----\n" +
     "setup - Set up intricacies of the bot.\n" +
-    "round - Start a new round.\n" +
+    "round - Start a new round. Mods: `-twist`; `-mystery`\n" +
     "endround - After voting, compile scores.\n" +
     "scoreboard - See a running scoreboard.\n" +
     "end - End the game. A game summary with be given.\n" +
+    "setmystery - Set the next mystery prompt.\n" +
     "shutdown - Shut everything down.\n\n" +
-
 
     "\`\`\`")
 }
