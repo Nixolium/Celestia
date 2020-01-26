@@ -92,7 +92,7 @@ function checkProps(message) {
     let player = userData[id];
     if (!userData[id]) userData[id] = {} //creates profile if none exists
     if (!userData[id].id) userData[id].id = id
-    if (!userData[id].wins) userData[id].votes = 0
+    if (!userData[id].wins) userData[id].wins = 0
     //if (!userData[id].losses) userData[id].losses = 0 
     if (!userData[id].avy || Math.random() > 0.999) userData[id].avy = message.author.avatarURL;
     

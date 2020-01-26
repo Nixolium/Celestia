@@ -31,7 +31,7 @@ module.exports = function (message) {
                 },
                 {
                     "name": "Wins",
-                    "value": userData[id].wins,
+                    "value": userData[target].wins,
                     "inline": true
                 },
             ]

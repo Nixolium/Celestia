@@ -27,6 +27,7 @@ module.exports = function (message) {
     let text = ""
     for (var winner in winners) {
         text += "<@" + winners[winner] + "> "
+        userData[winners[winner]].wins += 1
     }
     text += "won the round."    
 
