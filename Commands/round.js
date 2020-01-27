@@ -56,7 +56,6 @@ module.exports = function (message) {
     let min = 5;
     let sec = 1;
     let end = false
-
     
     const timeinterval = setInterval(function () {
         sec -= 1
@@ -78,7 +77,6 @@ module.exports = function (message) {
         }
     }, 1000)
 
-    end = true
     sec2 = 60;
     const timeinterval2 = setInterval(function () {
         //console.log("going")
@@ -107,7 +105,7 @@ module.exports = function (message) {
                 clearInterval(timeinterval2);
 
             } else if (sec2 == 15) {
-                bot.channels.get('668330311733739541').send("<@&668338640564256799> 10 Seconds Remaining to submit. Failure to do so will disqualify you!")
+                bot.channels.get('668330311733739541').send("<@&668338640564256799> 10 Seconds Remaining to submit.")
             } else {
             }
         }

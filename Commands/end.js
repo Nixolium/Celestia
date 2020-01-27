@@ -13,6 +13,7 @@ module.exports = function (message) {
         for (let y = 0; y < gameData["rounds"][x].length; y++) {
             rwtext += "<@" + gameData["rounds"][x][y] + "> "
         }
+        rwtext+= "\n"
         rcount += 1
     }
     bot.channels.get('668330311733739541').send(rwtext)

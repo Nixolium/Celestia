@@ -3,7 +3,7 @@ module.exports=function(message) {
     let ts = message.createdTimestamp;
     let words = message.content.trim().split(/\s+/)
     for (var x in gameData["players"]) {
-        if(id == gameData["players"][x]){
+        if(id == gameData["players"][x]["id"]){
             functions.replyMessage(message, "You are already in the game!")
             return;
         }

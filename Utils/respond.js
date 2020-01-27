@@ -33,4 +33,11 @@ module.exports = function (message) {
 	else if (msg === 'PREFIX') {
 		functions.sendMessage(message.channel, "Celestia's Prefix is + `" + defaultPrefix + "`");
 	}
+	else if (msg === 'NO U') {
+		functions.sendMessage(message.channel, "No, " + sendername + ". **YOU**.");
+	}
+	else if (message.content === '<:start:670439275158044682>') {
+		functions.sendMessage(message.channel, "<:start:670439275158044682>");
+	}
+	
 }
